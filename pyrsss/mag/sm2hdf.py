@@ -19,7 +19,7 @@ def read_sm_csv(csv_fname):
                      date_parser=lambda x: datetime.strptime(x, '%Y-%m-%d %H:%M:%S'),
                      index_col=0)
     df_map = {name: group for name, group in df.groupby('IAGA')}
-    for df in df_map.itervalues():
+    for df in df_map.values():
         del df['IAGA']
         df.rename(columns={'N': 'B_N',
                            'E': 'B_E',
